@@ -1,0 +1,8 @@
+<?php
+require_once 'database.php'; require_once 'functions.php'; session_start();
+if(logged_in()) redirect('discover.php'); $error='';
+if($_SERVER['REQUEST_METHOD']==='POST'){check_csrf();$u=trim($_POST['username']??'');$e=trim($_POST['email']??'');$p=$_POST['password']??'';$dob=$_POST['dob']??'';$pr=trim($_POST['pronouns']??'');
+ if(strlen($u)<2||strlen($p)<8||!filter_var($e,FILTER_VALIDATE_EMAIL)||!age18($dob))$error='Please use valid details and confirm you are 18 or older.';
+ else try{$q=$db->prepare("INSERT INTO users(username,email,password,dob,pronouns) VALUES(?,?,?,?,?)");$q->execute([$u,$e,password_hash($p,PASSWORD_DEFAULT),$dob,$pr]);$_SESSION['user_id']=$db->lastInsertId();redirect('discover.php');}catch(PDOException $x){$error='That username or email may already be in use.';}}
+?>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Create Account</title><link rel="stylesheet" href="style.css"></head><body><div class="center"><form class="box form" method="post"><h1>Create Account</h1><?php if($error):?><p class="error"><?=h($error)?></p><?php endif;?><input type="hidden" name="csrf" value="<?=h(csrf())?>"><label>Username<input name="username" required></label><label>Email<input type="email" name="email" required></label><label>Password<input type="password" name="password" minlength="8" required></label><label>Date of birth<input type="date" name="dob" required></label><label>Pronouns<input name="pronouns"></label><button class="btn">Create Account</button><a href="login.php">Already have an account?</a></form></div></body></html>

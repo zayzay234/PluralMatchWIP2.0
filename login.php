@@ -1,0 +1,5 @@
+<?php
+require_once 'database.php';require_once 'functions.php';session_start();if(logged_in())redirect('discover.php');$error='';
+if($_SERVER['REQUEST_METHOD']==='POST'){check_csrf();$q=$db->prepare("SELECT * FROM users WHERE email=?");$q->execute([trim($_POST['email']??'')]);$u=$q->fetch(PDO::FETCH_ASSOC);if($u&&password_verify($_POST['password']??'',$u['password'])){session_regenerate_id(true);$_SESSION['user_id']=$u['id'];redirect('discover.php');}$error='Incorrect email or password.';}
+?>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Log In</title><link rel="stylesheet" href="style.css"></head><body><div class="center"><form class="box form" method="post"><h1>Log In</h1><?php if($error):?><p class="error"><?=h($error)?></p><?php endif;?><input type="hidden" name="csrf" value="<?=h(csrf())?>"><label>Email<input type="email" name="email" required></label><label>Password<input type="password" name="password" required></label><button class="btn">Log In</button><a href="register.php">Create an account</a></form></div></body></html>

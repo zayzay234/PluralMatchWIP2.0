@@ -1,0 +1,22 @@
+# Database
+data/
+*.sqlite
+*.sqlite3
+
+# User profile photos
+uploads/
+assets/uploads/
+
+# Private configuration
+.env
+config.local.php
+
+# Bundled/local PHP
+php/
+
+# VS Code settings
+.vscode/
+
+# Windows/macOS files
+Thumbs.db
+.DS_Store
