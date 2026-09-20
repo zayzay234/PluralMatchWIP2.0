@@ -18,3 +18,21 @@ nav{display:flex;gap:7px;flex-wrap:wrap}nav a,.ghost{color:#eadce7;text-decorati
 main{width:min(1180px,92%);margin:0 auto;padding:34px 0 60px}main>h1{font-size:34px;color:#f7d7e7;text-shadow:0 0 20px rgba(240,138,183,.2)}
 @media(max-width:650px){header{align-items:flex-start;padding:14px 4%}.brand{font-size:20px}nav{width:100%}nav a,.ghost{padding:8px 10px}.columns{grid-template-columns:1fr}.box{padding:30px 22px}.box h1{font-size:32px}.avatar{height:170px}}
 .action-row{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;margin-top:14px}.action-row form{margin:0}.danger{display:inline-block;padding:10px 14px;border:1px solid rgba(255,141,168,.35);border-radius:999px;background:rgba(93,18,42,.7);color:#ffdce5;font-weight:700;cursor:pointer}.danger:hover{background:rgba(130,27,57,.85);border-color:#ff8da8}.report{margin-top:10px;color:#e9b8cc}.report summary{cursor:pointer;list-style:none;display:inline-block;padding:7px 10px;border:1px solid rgba(238,118,174,.15);border-radius:999px;background:rgba(18,8,20,.6)}.report-form{display:grid;gap:10px;margin-top:10px;padding:13px;border:1px solid rgba(238,118,174,.15);border-radius:14px;background:rgba(5,2,8,.55)}.report-form label{display:grid;gap:6px;color:#dec6d5;font-size:13px}.report-form select{width:100%;padding:10px;background:#0b0710;color:#fff;border:1px solid rgba(238,118,174,.2);border-radius:9px}.admin-head{display:grid;grid-template-columns:1fr 160px 160px;gap:15px;align-items:center;margin-bottom:24px}.stat{padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(12,6,16,.75);text-align:center}.stat b{display:block;font:700 30px 'Cinzel',Georgia,serif;color:var(--pink2)}.stat span{color:var(--muted);font-size:13px}.admin-list{display:grid;gap:15px}.report-card{padding:20px}.report-meta{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}.report-meta h2{margin:0;color:#f5d5e5}.report-meta small{color:var(--muted)}.status{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(110,100,115,.25);font:12px 'DM Sans',sans-serif;color:#cdbdca}.status.open{background:rgba(180,45,84,.22);border:1px solid rgba(255,141,168,.25);color:#ffb1c8}@media(max-width:800px){.admin-head{grid-template-columns:1fr 1fr}.admin-head>div:first-child{grid-column:1/-1}}@media(max-width:520px){.admin-head{grid-template-columns:1fr}.admin-head>div:first-child{grid-column:auto}}
+.avatar-image {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.avatar {
+    width: 190px;
+    height: 190px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
